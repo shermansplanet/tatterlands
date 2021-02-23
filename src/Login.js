@@ -57,7 +57,7 @@ export default class Login extends React.Component {
 
   render() {
     return (
-      <div className="centered" style={{ color: "var(--light)" }}>
+      <div className="centered">
         <form
           className="login"
           onSubmit={e => {

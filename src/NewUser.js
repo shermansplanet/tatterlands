@@ -33,7 +33,7 @@ export default class NewUser extends React.Component {
             onChange={e =>
               this.setState({
                 error: "",
-                name: e.target.value.replace(/[^a-z0-9]/gi, "")
+                name: e.target.value.replace(/[^a-z0-9 ]/gi, "")
               })
             }
           />

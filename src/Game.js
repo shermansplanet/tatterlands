@@ -3,14 +3,14 @@ import app from "firebase/app";
 import NewUser from "./NewUser";
 import Header from "./Header";
 import CharacterList from "./CharacterList";
-import CharacterView from "./CharacterView";
+import CharacterView from "./CharacterView/CharacterView";
 import "firebase/auth";
 import "firebase/firestore";
 
 export default class Game extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { loading: true, showCharacter: false };
+    this.state = { loading: true };
     this.auth = app.auth();
     this.db = app.firestore();
     this.userRef = this.db.collection("users").doc(this.auth.currentUser.uid);
@@ -32,7 +32,9 @@ export default class Game extends React.Component {
   }
 
   goToCharacter = id => {
-    this.setState({ showCharacter: id });
+    this.userRef.update({
+      showCharacter: id
+    });
   };
 
   render() {
@@ -44,10 +46,10 @@ export default class Game extends React.Component {
       return <NewUser onSubmit={data => this.userRef.set(data)} />;
     }
 
-    let content = this.state.showCharacter ? (
+    let content = this.state.userData.showCharacter ? (
       <CharacterView
-        exit={() => this.setState({ showCharacter: false })}
-        characterId={this.state.showCharacter}
+        exit={() => this.goToCharacter(false)}
+        characterId={this.state.userData.showCharacter}
       />
     ) : (
       <CharacterList showCharacter={this.goToCharacter} />
