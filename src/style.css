@@ -1,3 +1,42 @@
-h1, p {
+body {
   font-family: Lato;
+  margin: 0;
+  background-color: #282828;
+}
+
+.panelGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.panel {
+  border: 60px solid;
+  border-image: url(https://i.imgur.com/3O07DJD.png) 200 fill / 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 4px;
+  margin: 4px;
+}
+
+button {
+  margin: 4px;
+  padding: 4px;
+  cursor: pointer;
+  box-shadow: 0 1px 2px 0 #0005;
+  transition-duration: 0.3s;
+}
+
+button:hover {
+  box-shadow: 0 2px 4px 0 #0008;
+}
+
+.linkButton {
+  background: none;
+  border: none;
+  text-decoration: underline;
+  box-shadow: none;
 }

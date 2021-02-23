@@ -57,9 +57,9 @@ export default class Login extends React.Component {
 
   render() {
     return (
-      <div className="centered">
+      <div className="panelGroup">
         <form
-          className="login"
+          className="panel"
           onSubmit={e => {
             e.preventDefault();
             (this.state.resetPassword
