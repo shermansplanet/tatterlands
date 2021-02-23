@@ -17,7 +17,7 @@ export default class Game extends React.Component {
     this.unsubscribe = this.userRef.onSnapshot(async doc => {
       if (doc.exists) {
         this.setState({
-          userData: doc.data(),
+          userData: doc.data(), 
           newUser: false,
           loading: false
         });
