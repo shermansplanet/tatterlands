@@ -24,7 +24,7 @@ input {
 
 button {
   margin: 4px;
-  padding: 4px;
+  padding: 4px 6px;
   cursor: pointer;
   box-shadow: 0 1px 2px 0 #0005;
   transition-duration: 0.3s;
@@ -39,4 +39,10 @@ button:hover {
   border: none;
   text-decoration: underline;
   box-shadow: none;
+  transition-duration: 0s;
+}
+
+.linkButton:hover {
+  box-shadow: none;
+  color: #888;
 }

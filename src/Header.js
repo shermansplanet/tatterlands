@@ -11,20 +11,31 @@ export default class Game extends React.Component {
 
   render() {
     return (
-      <div className="header">
+      <div
+        style={{
+          display: "flex",
+          backgroundColor: "#ccc",
+          padding: "10px",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center"
+        }}
+      >
         Welcome, {this.props.user.name}
-        <button onClick={() => app.auth().signOut()}>Sign Out</button>
-        <button
-          onClick={() =>
-            app
-              .firestore()
-              .collection("users")
-              .doc(app.auth().currentUser.uid)
-              .delete()
-          }
-        >
-          Reset Player
-        </button>
+        <div>
+          <button onClick={() => app.auth().signOut()}>Sign Out</button>
+          <button
+            onClick={() =>
+              app
+                .firestore()
+                .collection("users")
+                .doc(app.auth().currentUser.uid)
+                .delete()
+            }
+          >
+            Reset Player
+          </button>
+        </div>
       </div>
     );
   }
